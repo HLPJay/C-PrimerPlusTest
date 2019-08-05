@@ -1,0 +1,93 @@
+1：数组存储字符串，strlen()确定字符串的长度。
+               sizeof()求整个数组的长度。
+
+2：cin.getline(name,20); 读取整行，放入大小为20的数组中。  //TODO:**************** getline的用法
+3：cin.get(name.ArSize).get();  面向行的输入，不带参数的get()可以清除输入的回车
+   cin.clear()；  清除输入导致的失效位
+4：std::string
+	c风格字符串，用数组存字符串
+	strcpy(charr1,charr2) 复制
+	strcat(charr1,charr2) 附加
+5：结构初始化，结构数组初始化（{}嵌套实现），结构中的位字段（：加数字）
+   匿名共用体（实现两个变量公用一个内存），枚举
+6：指针：
+		1：正常初始化（栈）
+		2：new方式初始化（堆），delete释放
+		3：使用new来创建动态数组。（运行时确定数组的大小）（动态：内存在运行时分配，而不是编译时）
+7：数组的替代：vector(其实是用new和delete管理)，array（栈静态内存分配）
+
+
+复习题：
+1: char actor[30];
+   short betsie[100];
+   float chuck[13];
+   long double dipsea[64];
+2:#include <array>
+  std::array<char,30> actor;
+  std::array<short,100> betsie;
+  std::array<float,13> chuck;
+  std::array<long double,64> dipsea;
+3:int testInt[5] {1,3,5,7,9};
+4:int even; even = testInt[0] + testInt[4];
+5:float ideas[10];
+  cout<<"第二个数据:"<<ideas[1]<<endl;
+6:char testSix[13] = {"cheeseburger"}
+7:string testSeven ("Waldorf Salad");
+8:struct FishInformation{
+		string variety;
+		int weight;
+		float length;
+	};
+9:FishInformation fishOne = {"carp",20,8.88};
+10: enum Respose {No =0, Yes = 1, Maybe=2};
+11: double ted;
+    double *tedptr = &ted;
+    cout<<*tedptr;
+12:float treacle[10];
+   float *treaclePtr = &treacle[0];  //treacle    //TODO:****************
+   cout<<*treaclePtr<<"  "<<*treaclePtr+9<<endl;
+13: #include <iostream>
+	#include <vector>
+	using namespace std;
+
+	int main(void)
+	{
+		unsigned int num;
+		cout<<"Please input the num:";
+		cin>>num;
+		int *dynamicArray = new int [num];
+		delete [] dynamicArray;
+		dynamicArray= nullptr;
+
+		vector<int> myVector(num); //TODO:vector的初始化要指定类型
+		return 0;
+	}
+14：有效  打印出”home of the jolly bytes“; //字符串常量，默认为字符串的首地址。
+15:struct FishInformation{
+		string variety;
+		int weight;
+		float length;
+	};
+
+	int main(void)
+	{
+		FishInformation *fishOne = new FishInformation;
+		fishOne->variety = "yellow fish";
+		fishOne->weight = 10;
+		fishOne->length = 8.88;
+		cout<<(*fishOne).variety <<" "<<(*fishOne).weight<<" "<<(*fishOne).length<<endl;
+	}
+16:上次输入的回车键导致getline(address,80);把回车当成输入而有问题，替换为cin>>address; 会只读入一个字符串。
+17：#include <iostream>
+	#include <vector>
+	#include <array>
+	#include <string>
+
+	int main(void)
+	{
+		const int stringNUm{10};    //不同初始化方式之间的差异
+		std::vector<std::string> myVector(stringNUm); //TODO vector和array初始化方式的差异
+		std::array<std::string,stringNUm> myArray;
+		return 0;
+	}
+

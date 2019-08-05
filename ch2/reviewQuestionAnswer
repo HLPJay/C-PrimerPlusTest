@@ -1,0 +1,11 @@
+1：C++程序的模块叫函数
+2：#include <iostream> 预处理编译指令的的作用是用iostream文件内容替换这行代码。
+3：using namespace std; 的作用是使用命名空间std名称空间中的定义。
+4：使用cout进行输出，end或者\n进行换行。
+5：int来创建整形变量
+6：cin用来从键盘读取输入
+9：函数返回值，函数名，函数参数，要依次匹配。
+10：当函数返回值为void，可以不必加return
+11：编译器指出cout是未知字符，处理方案：
+	#icnlude <iostream>  using namespace std;
+	std::cout;

@@ -1,0 +1,37 @@
+1:C++基本类型  整数和浮点数
+2：C++基本整型 char short int long 以及C++11的long long（每种类型都有有符号和无符号）
+3：sizeof对类型名或者变量名求占用字节大小，头文件climits中定义了类型符号常量，对类型最大的限制。
+4：C++11使得{}初始化的方式适用于所有类型。
+5：计算机处理int效率最高，只有正数则用无符号类型，大于16位的用long，超过20亿的用long long。
+   short比int小，大型整数数组或者需要节省内存用short。
+6：正数字面值： 0开头第二位1~7：  八进制    0x开头：十六进制
+   dec,hex,oct类似与endl，是iostream提供给cout，以不同的字面值进行输出。
+7：char类型在存储时存的是对应的ASCII对应的数字，cin和cout负责将对应的数值和字符的转换。
+8：cout.put(’！‘)；   该函数显示一个字符，此处显示一个！
+9：A为65  a为97 5为53
+10： Unicode和ISO 10646的区别？
+11：如果用char用作数值类型，分为unsigned char和signed char类型，否则用char类型。
+12：wchar_t处理无法用8位表示的字符集，如日文汉子系统。 wcin和wcout用于输出。
+13：char16_t,char32_t,bool(非0为true，否则为false）
+14:符号常量限定符 const
+15：浮点数  两种写法： 1：小数点 2：E字表示法
+16： float  double  long double(cfloat或者float.h中定义了限制)
+17：潜在的隐式转换：（double转为float，浮点数转为整数，long转为short）
+18：cout.setf(ios_base::fixed,ios_base::floatfield); 设置默认小数点后的位置输出
+19：使用{} 初始化列表
+
+复习题答案：
+1：C++有多种整型，根据特定的需求可以选择合适的类型，也可以选择提高计算的速度的类型。
+2： short sbit = 80;  //short sbit {80};
+    unsigned int uinttest=42110;  //unsigned int uinttest {42110}; 
+    int intTest = 3E+9;    //int intTest {3E+9};
+3:C++没有方法防止超出整形的范围，可以查看climits方式查看限制。
+4:常量33L为long类型，33为int类型。
+5:char grade = 65;与 char grade = ’A‘;某些情况下效果相同，但是65是int，A是char类型
+6：找出88对应的字符类型的方法： char c= 88; cout.put(char(88));  (char)88;
+8: 8*9+2 = 74;
+   6*3/4 = 4;
+   3/4*6 = 0;
+   6.0*3/4 = 4.5;
+   15%4 = 3;
+10:int, float, char, char32_t,double;

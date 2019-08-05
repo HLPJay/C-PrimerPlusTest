@@ -1,0 +1,133 @@
+1：函数，C++的编程模块
+2：数组传参 数组指针传参  数组区间传参
+3：尽量使用const
+4：二维数组传参
+5：函数递归，函数指针（获取函数地址，声明一个函数指针，使用函数指针调用函数）
+	double pam(int);
+	声明函数指针： double (*pf)(int);
+	使用相应的地址赋值： pf = pam;   (参数和返回值必须相同)
+	函数调用：    double y = (*pf)(4);
+
+
+
+练习：
+	1：递归
+	2：函数指针
+	3：函数指针数组调用  //auto
+	4:typedef 对函数指针进行别名
+		typedef const doulbe *(*p_fun)(const double*, int);     p_fun就是这里的函数别名
+
+
+
+复习题：
+	1：定义函数，提供原型，函数调用。
+	2：void igor();
+	  float tofu(int n);
+	  double mpg(double a, double b);
+	  long summation(long longArray[], int size);
+	  double doctor(const string str);
+	  void ofcourse(boss bossOne);
+	  string plot(map *mapOne);  //char * plot(map *mapOne);
+	3:void ThreeFunction(int arrayOne [],int size, int value )
+	  {
+	  	for(int i=0; i<size; i++)
+	  	{
+	  		arrayOne[i] = value;
+	  	}
+	  	return;
+	  }
+	4:void FourFunction(int *begin, int *end, int value)
+	  {
+	  	for(int *pt= begin; pt!=end; pt++)
+	  	{
+	  		*pt = value;
+	  	}
+	  }
+	5:double GetLargest(const double doubleArry[], int size)
+	  {
+	  	if(size<1)
+	  	{
+	  		return 0;
+	  	}
+
+	  	double largest = doubleArry[0];
+	  	for(int i=0; i<size; i++)
+	  	{
+	  		if(largest<doubleArry[i])
+	  		{
+	  			largest = doubleArry[i];
+	  		}
+	  	}
+	  	return largest;
+	  }
+
+	  6:const限定符用于指针，限定原始数据不被修改。基本类型做为参数时传递的是副本。
+	  7：char数组，双引号括起来的字符串，指向字符串第一个字符的地址。
+	  8：
+	  	int replace(char *str,char c1,char c2)
+	  	{
+	  		int num = 0;
+	  		while(*str)
+	  		{
+	  			if(*str == c1)
+	  			{
+	  				*str = c2;
+	  				num ++;
+	  			}
+	  			str++;
+	  		}
+	  		return num;
+	  	}
+	  9:*"pizza"取得字符串中第一个的字符
+	    “taco”[2] 取得字符串中第二个字符。
+	  10：按值传递 直接传递结构变量    按地址传递   加&
+	     按值传递，对数据做保护，以时间和内存做消耗
+	     按地址传递，直接使用源数据地址，会改变源数据，但是可用const限定。
+	  11：原型： int functionTest(const char*);
+	     int judge(int (*pf）(const char*));
+	  12:void FunctionApplicant(applicant app)
+	  	{
+	  		cout<<app.name<<app.credit_ratings[0];
+	  		cout<<app.credit_ratings[1]<<app.credit_ratings[2]<<endl;
+	  	}
+
+	  	void FunctionApplicantptr(applicant* appptr)
+	  	{
+	  		cout<<app->name<<app->credit_ratings[0];
+	  		cout<<app->credit_ratings[1]<<app->credit_ratings[2]<<endl;
+	  	}
+	  13:
+	  	函数原型：
+	  		void f1(applicant *a);
+	  		const char *f2(const applicant *a1, const applicant *a2);
+	  	声明函数指针：
+	  		void (*p1)(applicant *);
+	  		const char *(*p2)(const applicant *, const applicant *);
+	  	赋值：
+	  		p1= f1;
+	  		p2= f2;
+
+	  typedef void (*p1_f1)(applicant *);
+	  typedef const char *(*p2_f2)(const applicant *, const applicant *);
+	  p1_f1 p1 = f1;
+	  p2_f2 p2 = f2;
+
+	  p1_f1 ap[5];
+	  p2_f2 (*pa)[10];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

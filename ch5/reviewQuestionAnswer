@@ -1,0 +1,31 @@
+1:cout.setf(ios_base::boolalpha);    bool类型显示bool的true或者false
+2:cin.get(ch)   读取一个字符包括空格等
+3：ctrl+d为EOF（字符输入结束符）  cin.fail()来判断
+4：stdio.h        getchar()    putchar()
+  iostream       cin.get()     cout.put()
+
+
+复习题：
+1：for和while都属于入口条件循环。   do...while...属于出口条件循环。
+2: 01234 换行
+3： 0369
+    12
+4:6
+  8
+5：k = 8
+6:#include <iostream>
+	using namespace std;
+	int main(void)
+	{
+		const int multiple = 2;
+		int number = 1;
+		do{
+			cout<<number<<" ";
+			number *= multiple;
+		}while(number<=64);
+		cout<<endl;
+		return 0;
+	}
+7:{}
+8:有效
+9：cin>>ch;输入一个字符要跳过空格回车和制表符。

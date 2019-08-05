@@ -1,0 +1,54 @@
+1:cin.get(ch); 读取一个字符
+2：字符函数库  ctype.h
+	isalpha(ch) 字母返回非零
+	ispuncr(ch) 标点返回true
+	isalnum(ch) 字母或数字返回true
+	iscntrl(ch) 控制字符
+	isdigit(ch) 数字0~9
+	islower(ch) 小写字母
+	...
+3:用枚举做为标签，switch中case的标签
+4：写入文件  fstream头文件  ofstream定义 <<写入
+   读取文件   fstream  ifstream定义    >>读出
+
+
+复习题：
+1：第二个效率更高，第一个测试中，当满足字符为空格时，会继续对该字符进行'\n'判断
+2: ch+1会把ch当做数字进行输出，而++ch会当成字符继续输出。
+3：因为ch=’$‘是赋值符号而不是ch == '$'判等符号,cin.get()回车和换行也能识别到 while判断到第一个$结束
+	Hi!
+	H$i$!$
+	$Send $10 or $20 now
+	S$e$n$d$ $ct1=9, ct2 = 9
+4: 1: if(weight>=115 && weight <125){};
+   2: if(ch == 'q'||ch == 'Q'){}
+   3: x%2 == 0&& x!=26
+   4: x%2 == 0 && x%26!=0
+   5: donation>1000||donation<=2000||guest ==1
+   6: (ch>='a'&&ch<='z')||(ch>='A'&&ch<='Z')
+5:不一定，因为0代表false，非零代表true。
+6：x>=0?x:-x;
+7:  char ch;
+	int  a_grade,b_grade,c_grade,d_grade,f_grade;
+	a_grade=b_grade=c_grade=d_grade=f_grade = 0;
+	cin>ch;
+	switch(ch)
+	{
+		case 'A': a_grade++; break;
+		case 'B': b_grade++; break;
+		case 'C': c_grade++; break;
+		case 'D': d_grade++; break;
+		defalut: f_grade++;
+	}
+8:使用数字的话，用字符输入会因不能处理而挂起；
+  使用字符不会，会把数字当特殊字符在default中做处理。
+9：break可以直接判定在while的循环中！！！
+  int line;
+  char ch;
+  while(cin.get(ch)&&ch!='Q')
+  {
+  	if(ch =='\n')
+  	{
+  		line++;
+  	}
+  }
