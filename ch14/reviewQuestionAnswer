@@ -1,0 +1,39 @@
+1：包含 has-a关系
+	在类中其中一个类成为它的成员变量 ---》多使用包含
+	私有继承--》一般需要重新定义方法时使用
+2：explicit 防止单参数构造函数隐式转换
+3：初始化的顺序为类中声明的顺序。
+4：使用using重新定义函数的访问权限
+	using std::valarray<double>::min; --->就可以使用min()
+5:C++在基类是虚的时，禁止信息通过中间类自动传递给基类。
+	虚基类，直接通过构造函数直接给基类初始化。   多重继承（MI）解决三层继承时基类二义性问题。
+	虚基类：包含基类的一个子对象
+6：类模板
+7：template <class Type>加在定义的类顶端
+8：注意类模板不正确得使用指针栈   或者用数组存储
+9：数组模板实例以及非类型参数传递进去  template<class Type, int n>
+10:模板的多功能性：
+	递归使用模板，使用多个类型的参数的模板，默认类型的参数模板。
+11：模板具体化：
+	隐式实例化： ArrayTP<int,10> stuff;
+	显示实例化： template class ArrayTP<int,10>;
+	显示具体化：template <> class SortedArray<const char char*>
+	部分具体化： template <class T1, class T2> class Pair{...}
+			   template <class T1> class Pair<T1, int>{...}
+12:将模板用作参数
+13：模板类与友元：
+	非模板友元函数：
+	约束模板友元函数
+	非约束模板友元函数
+14：模板别名：使用using和typedef
+15: 将模板用作参数： template <template <typename T> class Things>
+
+
+
+
+
+复习题：
+	1：公有继承：                                 例如：北极熊属于熊 熊为基类
+	   私有继承：继承来的基类的方法在派生类中都是私有的  例如：家里有厨房   厨房为基类
+	6：如果两个继承路线中有相同的祖先，那么就会生成两个基类的拷贝。  使用虚基类可以解决该问题
+

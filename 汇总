@@ -28,7 +28,10 @@
 osgi
 
 
-
+从第九章开始，先做题，再去查看本章内容：
+	cin.get(arr, size);
+	cin.get(ch)
+单元测试+日志设计
 
 
 
@@ -45,3 +48,11 @@ osgi
 	不要用alloca申请内存
 	指针释放后未置为空（悬挂指针可能会导致双重释放或者访问已释放内存的危险）
 	不要用realloc函数调整内存大小而用malloc
+
+
+	在远端新建一个git库，然后本地使用命令：
+	git remote add origin https://github.com/HLPJay/C-PrimerPlusTest.git
+	git push -u origin master
+
+
+	第十一章：重载运算符，成员函数重载和友元函数重载

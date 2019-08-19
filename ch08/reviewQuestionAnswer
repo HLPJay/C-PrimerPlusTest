@@ -1,0 +1,81 @@
+1：内联函数（inline）：函数代码替换函数调用
+2：宏不能按值传递。
+3：引用：创建别名，必须创建时初始化
+4：const与引用  返回引用，引用用于结构体，引用用作类对象
+5：函数重载
+6：函数模板（通用编程）
+7：重载函数模板
+8：模板的显示具体化  template <> void Swap<job>(job&, job&);   具体用job类型.
+9：C++后置返回类型
+	auto h(int x,int y) -> double;
+
+	template <class T1,calss T2>
+	auto gt(T1 x,T2 y) ->decltype(x+y)   //decltype()中括号的类型相同
+	{
+		return x+y;
+	}
+
+练习：
+按值传递，引用传递，指针传参
+
+复习题：
+1：只有一行代码的小型，非递归函数；
+2：a: void song(const char* name, int times = 1);
+   b:不用修改
+   c:void song(const char* name = "O.My Pana", int times = 1);
+3:  void iquote(int x)
+	{
+		cout<<"\""<<x<<"\""<<endl;
+	}
+	void iquote(double x)
+	{
+		cout<<"\""<<x<<"\""<<endl;
+	}
+	void iquote(string x)
+	{
+		cout<<"\""<<x<<"\""<<endl;
+	}
+4:  void FourFunction(const box & boxOne)
+	{
+		cout<<"maker:"<<boxOne.maker<<endl;
+		cout<<"height:"<<boxOne.height<<endl;
+		cout<<"width:"<<boxOne.width<<endl;
+		cout<<"length:"<<boxOne.length<<endl;
+		cout<<"volume:"<<boxOne.volume<<endl;
+	}
+
+	void FourFunction(box & boxOne)
+	{
+		boxOne.volume = boxOne.height*boxOne.width*boxOne.length;
+		cout<<"maker:"<<boxOne.maker<<endl;
+		cout<<"height:"<<boxOne.height<<endl;
+		cout<<"width:"<<boxOne.width<<endl;
+		cout<<"length:"<<boxOne.length<<endl;
+		cout<<"volume:"<<boxOne.volume<<endl;
+	}
+5: void fill(std::array <double, Seasons> &pa) -->并修改提取数组内容用直接提取
+   void show(const std::array<double, Seasons> &da); -->仅用于显示，禁止修改
+6：a:可以用默认参数，也可以用重载
+	double mass(double density, double valume = 1.0);
+
+	double mass(double density, double valume );
+	double mass(double density);
+  b:可以使用重载
+    void repeat(int byn,const char* str);
+    void repeat(const char* str);
+  c:可以使用函数重载
+    int average(int a, int b);
+    double average(double a, double b);
+  d:不能这样做，有歧义，
+7：template <class T>
+   T GetMax(T x1,T x2)
+   {
+   	  return x1>x2?x1:x2;
+   }
+8:模板具体化
+	template <> box GetMax(box x1, box x2);
+9:v1: float
+  v2: float &
+  v3: float &
+  v4: int
+  v5: double

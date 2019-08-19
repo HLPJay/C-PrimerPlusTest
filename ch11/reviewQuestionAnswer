@@ -1,0 +1,38 @@
+1:运算符重载
+2：友元--》主要介绍友元函数（赋予该函数与类的成员函数相同的访问权限）
+		可以访问类的私有成员
+		例如  void operator<<(ostream& os , const Time & time)  --->要访问Time的私有成员，所以必须是Time的私有成员
+3：构造函数和析构函数
+4：只能在声明中使用友元，不能在定义中使用。
+5：TODO ：了解源码中如何实现的重载
+6：explict 声明为显示，禁止隐式子转换
+
+
+
+
+复习题：
+1：
+class Stonewt
+{
+	public:
+		Stonewt operator*(double mult);
+}
+
+Stonewt Stonewt::operator*(double mult)
+{
+	return Stonewt(mult*pounds);
+}
+2:成员函数和友元函数都可以 直接访问类的私有成员
+成员函数是类的一部分，通过特定的对象来调用，可以隐式的访问调用对象的成员，无需使用成员运算符。  .或者->
+友元函数不是类的一部分，不能隐式访问类成员，必须通过成员运算符用作参数传递的对象来使用
+3：要访问类的私有成员，必须是友元， 但是要访问类的共有成员，不需要必须是友元。
+4：friend Stonewt operator*（double mult, const Stonewt& s）
+
+Stonewt Stonewt::operator*(double mult, const Stonewt& s)
+{
+	return Stonewt(mult*s.pounds);
+}
+5:sizeof  .    *   ::   ?:不能重载
+6：重载=，（），【】，-》必须是类成员函数
+7：operator double() {return mag};
+
