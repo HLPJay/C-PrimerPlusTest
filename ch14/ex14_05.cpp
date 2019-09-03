@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+#include "ex14_05_base.h"
+
+int main(void)
+{
+	employee em("Trip", "Harris", "Thumper");
+	cout<<em<<endl;
+	em.ShowAll();
+
+	manager ma("Amorphia", "Spindragon", "Nuancer", 5);
+	cout<<ma<<endl;
+	ma.ShowAll();
+
+	fink fi("Matt", "Oggs", "Oiler", "Juno Barr");
+	cout<<fi<<endl;
+	fi.ShowAll();
+
+	highfink hf(ma, "Curly Kew");
+	hf.ShowAll();
+	cout<<"Please a key for next phase: \n";
+	cin.get();
+	highfink hf2;
+	hf2.SetAll();
+
+	cout<<"Using an abstr_emp * pointer: \n";
+	abstr_emp * tr[4] = {&em, &ma, &fi, &hf2};
+	for(int i=0;i<4;i++)
+		tr[i]->ShowAll();
+	return 0;
+}

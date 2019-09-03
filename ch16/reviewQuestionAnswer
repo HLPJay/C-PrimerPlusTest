@@ -1,0 +1,64 @@
+1:string的基本方法 源码  查找 迭代器
+2：智能指针模板
+3：11个迭代器 deque list queue priority_queue, stack vector map multimap set multiset bitset
+C++新增 forward_list unordered_map unordered_multimap unordered_set unordered_multiset(无序)
+
+array
+4：函数符（functor） 以函数方式与（）结合使用任意对象 函数名 指向函数指针 重载()的类对象
+5:自适应函数符和函数适配器
+	函数指针和函数符的替代品 lambda
+6：sort()   copy()  find()    random_shuffle()
+   set_union()   set_intersection()  set_difference()   transform()
+   replace()   replace_copy()   replace_if()
+   next_permutation() 重新排列
+7：complex复数
+8：vector valarray array  
+9:initializer_list模板  头文件<initializer_list>
+10：C++11可以使用{}初始化
+
+
+练习：
+1：string
+2：迭代器 (指针用作迭代器)
+3：智能指针（注意所有权） unique_ptr（不支持拷贝与赋值）   auto_ptr   shared_ptr (悬挂指针)
+3：ector各种操作 swap等 迭代器
+4：for for_each for(auto & x: books)
+5: algorithm
+6：函数符（functor） for_each sort的第三个参数 transform
+7：预定义的函数符：  plus(+)   minus(-)  multiplies(*)  duvudes(/) modulus(%)
+	negate(-) equal_to(==) not_equal_to(!=)  greater(>)  less(<)
+	greater_equal(>=) less_equal(<=) logical_and(&&)   logical_or(||) logical_not(!)
+8：使用transform()将字符串转换成小数
+
+
+复习题：
+1：class RQ1
+	{
+		private:
+			std::string st;
+		public:
+			RQ1(): st("");
+			RQ1(const char* s): st(s){}
+			RQ1(const RQ1 & rq){st = rq.st;}
+			~RQ1(){};
+	}
+2:string可以实现赋值   有自己的内存管理，不用显示申请    不用担心超出存储容量
+3：string ToUpper(string & s)
+{
+	string temp =s;
+	for(int i=0;i<s.length(); i++)
+	{
+		if(temp[i] >= 'a' && temp[i] <= 'z')
+		{
+			temp[i] = std::toupper(temp[i]);
+		}
+	}
+	return temp;
+}
+4:auto_ptr 需要指定类型 需要用new去初始化 需要设置变量名
+5：栈：先进先出    想要取特定的球棍不方便
+6：set是有序容器 会自动排序，并且只存储一个值的拷贝
+7：迭代器能使用接口类似指针的对象不以数组方式遍历
+8：提高通用性
+9：可以实现赋值   自动管理内存   自动增长长度
+10：list只有双向迭代器，可以使用list类的sort函数

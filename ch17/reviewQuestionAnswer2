@@ -1,0 +1,9 @@
+内核格式化：
+sstream头文件
+ostringstream对象，以及str()确定最后的输入
+istringstream输出
+
+
+练习：
+	定义特定的格式特定的数值，用char*来存和解析
+	用ostringstream和istringstream 来存和解析

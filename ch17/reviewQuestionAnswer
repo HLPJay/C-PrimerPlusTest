@@ -1,0 +1,131 @@
+1：流（字节） 和缓冲区
+	输入流：键盘，硬盘或其他程序
+	输出流：屏幕 打印机，存储设备，或者其他程序
+
+	流 是程序和流源或者流目标之间的桥梁
+	C++程序只检测字节流，不关注去向。
+
+	缓冲区：更高效处理输入和输出。 用作中介的内存快  
+2:iostream自动创建8个流对象（4个用于窄字符流，4个用于宽字符流）
+	cin：对应标准输入流，关联到输入设备
+	cout: 对应标准输出流，  关联到标准输出设备
+	cerr： 标准错误流 --没有被缓冲
+	clog： 标准错误流 --《关联到输出设备》被缓冲
+
+3：重定向：
+	<file 标准输入与文件关联 使cin从该文件读取
+	>file 标准输出与文件关联 使cout输出到文件
+	有些系统 2> 重定向标准错误
+
+4：ostream 把计算机中保存的二进制位模式转换为字符字节组成的输出流
+		 将数值类型转为文本形式的字符流
+
+5：<<插入运算符  //TODO 对每种类型实现了重载定义
+6：其他osteram方法：
+	 put() 显示字符 cout.put('w').('t').put(65)  //TODO 查看原型
+	 write() 显示字符串   cout.write(const char*, charsize);  打印字符的前多少个
+
+7：刷新输出缓冲区： ostream对cout对象处理的输出进行缓冲（512字节或者整数倍）
+	换行符发送到缓冲区，会刷新缓冲区
+	cin输入即将发生，刷新缓冲区
+	flush 刷新缓冲区
+	endl  刷新缓冲区并且插入一个换行
+
+8：cout进行格式化 ios_base中的成员方法
+	ostream--> ios--->ios_base
+	 hex(cout) -->十六进制
+	 int width()  int width(int i)  返回字段宽度， 字段宽度设置i个空格（右对齐）， 返回字段宽度
+	 	只影响下一个项目
+	cout.fill('*')    --->设置填充字符  
+		一直有效，直到重新设定
+	cout.precision(2) --->设置浮点数显示精度
+	cout.setf(ios_base::showpoint) 打印末尾的0和小数点
+
+	C++: 显示所有的数据比整洁更重要
+
+9：setf()是ios_base 类的一个成员方法，控制格式选项
+	有两个原型：
+		 fmtflags setf(fmtflags)
+		 	ios_base::boolalpha   输入输出bool时显示false或者true
+		 	ios_base::showbase    输出 C++基数前缀（0，0X）
+		 	ios_base::showpoint   显示末尾的小鼠
+		 	ios_base::uppercase   十六进制用大写字母
+		 	ios_base::showpos     正数前家+
+		ios_base::fmtflags  cout.setf(fmtflags, fmtflags )
+			第一个参数：要设置的位    第二个参数：要清除的位（有对应关系）
+			第二个参数               第一个参数                含义
+									ios_base::dec  			基数10
+			ios_base::basefield     ios_base::cot           基数8
+									ios_base::hex           基数16
+
+			ios_base::floatfield	ios_base::fixed         定点记数法
+									ios_base::scientific    科学记数法
+
+			ios_base::adjustfield   ios_base::left          左对齐
+									ios_base::right         右对齐
+									ios_base::internal      符号或者基数前缀左对齐 值右对齐
+
+10:void unsetf(fmtflags mask)  消除格式
+11：标准控制符代替setf()设置格式
+	boolalpha			noboolalpha
+	showbase			noshowbase
+	showpoint 			noshowpoint
+	showpos				noshowpos
+	uppercase			nouppercase
+	internal			
+	left
+	right
+	dec
+	hex
+	oct
+	fixed
+	scientific
+
+12:头文件iomanip提供一些控制副
+	setprecision()   设置精度
+	setfill()        填充字符
+	setw()           字段宽度
+
+
+13：cin进行输入，被缓冲
+	跳过空白（空格， 换行符，制表符），直到非空白字符
+
+
+14：流状态： （iostate类型，是bitmask类型，三个元素）（eofbit, badbit, failbit）
+
+	eofbit,    到达文件尾，设置为1
+	badbit,    流被破坏，设置为1， 例如文件读取错误
+	failbit    输入未能读取预期字符，输出没有写入与其字符 设置为1
+	goodbit    0
+	good()	   流可以使用表示ture
+	eof()	   eofbit被设置，返回true
+	bad()	   badbit被设置，返回true
+	fail()     badbit和failbit被设置，返回true
+
+	rdstate()						返回流状态
+	exceptions()					返回位掩码，哪些标志位导致异常
+	exceptions(isostate ex)			设置哪些状态位，导致clear()异常
+	clear(iostate s)				将流的状态设置为s,s默认为0(goodbit) rdstate()&exceptions()!=0 会引发异常
+	setstate(iostate s)				设置对应位流状态，其他流状态保持不变
+
+	clear()重置状态
+
+15：istream方法：
+	输入：
+	get()  getline()   ignore() 分界符（多少个字符到某个字符结束）
+	read()  读出指定字符个数，不加空值字符
+	peek()  查看下一个字符：返回输入中的下一个字符，不抽取输入流中的字符
+	gcount() 最后一个非格式化抽取方法读取的字符数 即 get()  getline()   ignore()read（）读取
+	putback() 将一个字符插入到输入字符中
+
+
+练习：
+	1：put write
+	2:hex width +fill
+	3：setf() unsetf（）
+	4：setprecision（） setfill（）  setw（）
+	5：exceptions（）  clear()
+	6：流状态的影响 isspace（）  舍弃后面的输入
+	7：get() (末尾 EOF)和getline()   ignore() 分界符（多少个字符到某个字符结束）
+		get（）也可以读取输入的一串字符的
+	8：read()   peek()   gcount()   putback()

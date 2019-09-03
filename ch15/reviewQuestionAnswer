@@ -1,0 +1,49 @@
+友元，异常和其他：
+友元类：友元类的所有方法都可以访问原始类的私有成员和保护成员。
+//遥控机可以改变电视  所以遥控可以作为电视的一个友元
+嵌套类
+模板中的嵌套：
+异常：
+	1：调用abort() cstdlib cerr（错误流发送消息）/exit()刷新文件缓冲区
+	2：返回错误码
+	3：异常机制
+		throw 抛出异常
+		try 标识可能会抛出异常的代码块   catch 捕获异常
+异常规范：
+	noexcept 指出函数不会发生异常
+catch用引用实际上还是传递副本，作用是有些继承的抛异常
+...捕获任何异常
+exception头文件中exception类：
+	定义了一些基本的异常类：
+		domain_error:定义域和值域引发异常
+		invalid_argument:给函数传递意料外的值。
+		length_error：没有足够的空间 string的append
+		out_of_bands ：索引异常
+	每个类都有一个runtime_error异常系列的构造函数，供方法what()用返回的字符串。
+new导致的内存分配异常问题，引发bad_alloc异常
+new 返回空指针，（std::throw） 
+意外异常和未捕获异常会导致程序异常中断
+
+RTTI :运行阶段类型识别-->只适用于包含虚函数的类
+	1：dynamic_cast 基类指针指向派生类指针 否则返回0 typeid  type_info
+
+类型转换运算符：
+	1：dynamic_cast  基类和派生类
+	2：const_cast    const和volatile
+	3: static_cast   无需类型转换  整形和枚举  double和int
+	4：reinterpret_cast (危险的强制类型转换)
+练习：
+	友元类
+	模板中的嵌套
+	异常机制
+	将对象用作异常
+	栈解退
+	bad_alloc异常
+	异常，类，和继承综合练习
+	dynamic_cast
+	typeid运算符  type_info类
+	const_cast修改指针问题
+
+复习题：
+1： a:friend class clasp
+	b:

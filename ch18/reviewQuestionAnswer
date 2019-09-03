@@ -1,0 +1,73 @@
+C++新特性
+1：long long 和unsigned long long 
+	char16_t  char32_t
+2:统一的初始化{}
+3:防止缩窄
+
+4：std::initializer_list(模板类，只能用于构造函数)
+5：auto 自动类型推断
+6：decltype 变量声明为表达式指定的类型
+7：返回类型后置  ---》模板中与decltype搭配
+8：模板别名  using=
+9：nullptr
+10：智能指针 ： unique_ptr  shared_ptr weak_ptr
+11:throw后置说明引发哪种异常
+	noexcept 说明不引发异常
+12：作用域（class struct）内枚举
+
+13： 显示转换运算符  explicit
+     类内成员初始化（直接定义时初始化）
+
+14：for循环  for(double x: prices)
+15: 新增了array及其他容器
+16：cbegin() cend() const版本
+17：valarray 升级
+18：摒弃export
+19：尖括号 >> 加空格显示差异
+20：右值引用
+
+
+21：移动构造函数和移动赋值构造函数&&
+22：默认的方法 default
+    禁用的方法 delete
+23：委托：构造函数定义中使用另一个构造函数
+24：继承构造函数  在子类中using 父类名：：父类名
+25：管理虚方法： 
+		override 覆盖虚函数
+		final    禁止覆盖虚函数
+26：lambda   //TODO
+
+
+27:包装器（适配器）  //TODO
+28：可变参数模板   //TODO
+		...  
+
+练习：
+	移动语义和右值引用  
+	移动构造函数
+	位运算符（注意存储范围）
+	P856
+	成员解除引用运算符
+	alignof() 以类型为参数，返回内存中的存储方式，方便补齐
+	STL算法库， 相关函数
+
+其他：
+	线程化执行的内存模型：thread_local
+	原子操作 atomic
+	random头文件 复杂的随机工具
+	chrono头文件 处理时间间隔的途径
+	tuple支持模板
+	radio 编译阶段有理数库
+	regex 正则表达式
+
+	共用体允许成员有构造函数和西沟函数
+	解决内存对其问题    alignof()
+	constexpr 编译阶段计算结果为常量的表达式
+
+
+	assert 断言
+	元编程
+
+	boost库
+
+	alignof() 以类型为参数，返回内存中的存储方式，方便补齐

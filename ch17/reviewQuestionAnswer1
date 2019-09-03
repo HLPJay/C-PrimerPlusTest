@@ -1,0 +1,45 @@
+文件输入和输出：
+	写入文件： ofstream  << write()
+	读取文件： istream   >> get()
+	打开的文件必须和流关联
+
+1：头文件fstream
+	定义流	ofstream /istream
+	关联文件 open()函数 或者定义流构造时关联
+
+	关闭流与文件的连接： close
+
+2：流状态检查 fail() is_open()--(试图以不合适的文件模式打开失败能够检测到 fail() !good() !fin不能)
+3：打开多个文件
+	int main(int argc, char*argv[]) argc个数  argv指针数组
+4：文件模式
+	ios_base::in        读
+	ios_base::out       写
+	ios_base::ate       移到文件末尾
+	ios_base::app        追加在末尾
+	ios_base::trunc        如果文件存在，截短文件
+	ios_base::binary        二进制文件
+
+	定义流的时候设置文件关联与文件模式格式 |拼接
+5：以二进制存储 ，使用二进制模式+write()（只复制不转换）
+  恢复信息 用二进制+read()
+6：随机存取
+	seekg() 将指针移动到指定的文件位置
+	seekp() 输出指针移动的指定文件位置
+
+	ios_base::beg 开头
+	ios_base::cur 当前
+	ios_base::end 结尾
+文件指针当前位置：
+	输入流 tellg()
+	输出流 tellp（）
+
+临时文件名  char* tmpnam(char* pszName)
+
+练习：
+	1：输入和输出文件
+	2： fail() is_open() 文件检测
+	3：int main(int argc, char*argv[])
+	4：二进制存及取
+	5：随机存取seekg()  seekp()
+	6: 临时文件名  char* tmpnam(char* pszName)
