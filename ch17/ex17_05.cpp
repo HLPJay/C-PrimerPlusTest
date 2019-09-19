@@ -38,6 +38,7 @@ int main()
 	ofstream fout(filename, ios_base::out);//打开文件  | ios_base::app| ios_base::binary 输入 以二进制追加
 	if(!fout.is_open())
 	{
+		
 		cerr<<"Can't not open "<<filename<<" for output\n";
 		exit(EXIT_FAILURE);
 	}

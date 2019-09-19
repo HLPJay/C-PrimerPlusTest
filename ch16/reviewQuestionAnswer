@@ -21,7 +21,7 @@ array
 1：string
 2：迭代器 (指针用作迭代器)
 3：智能指针（注意所有权） unique_ptr（不支持拷贝与赋值）   auto_ptr   shared_ptr (悬挂指针)
-3：ector各种操作 swap等 迭代器
+3：vector各种操作 swap等 迭代器
 4：for for_each for(auto & x: books)
 5: algorithm
 6：函数符（functor） for_each sort的第三个参数 transform
